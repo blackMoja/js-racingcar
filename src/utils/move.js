@@ -1,6 +1,6 @@
 import { state, setState } from '../js/state.js'
 import sleep from '../utils/sleep.js'
-import randomNumber from './randomNumber.js'
+import getRandomNumber from './getRandomNumber.js'
 
 const move = async () => {
   let gameCount = state.gameCount
@@ -15,7 +15,7 @@ const move = async () => {
 let result = []
 const doMove = (gameCount) => {
   state.cars.forEach((car, index) => {
-    const getMove = randomNumber()
+    const getMove = getRandomNumber()
     const { name, position } = car
 
     let _position = position
