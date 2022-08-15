@@ -6,6 +6,14 @@ const $gameCountForm = document.querySelector('#gameCountForm')
 const $gameBoard = document.querySelector('#gameBoard')
 const $racingList = document.querySelector('#racingList')
 
+const $move = '<div class="forward-icon mt-2">⬇️</div>'
+const $loading = `
+  <div class="d-flex justify-center mt-3">
+    <div class="relative spinner-container">
+      <span class="material spinner"></span>
+    </div>
+  </div>`
+
 const activateCarListForm = () => {
   const [$input, $button] = $carListForm.querySelectorAll(':scope input,button')
 
@@ -54,8 +62,6 @@ const renderCars = () => {
     return
   }
 
-  const $move = '<div class="forward-icon mt-2">⬇️</div>'
-
   let dom = ''
 
   state.cars.forEach((car) => {
@@ -63,21 +69,12 @@ const renderCars = () => {
       <div class="mr-2">
         <div class="car-player">${car.name}</div>
         ${$move.repeat(car.position)}
-        ${state.gameCount > 0 ? renderLoading() : ''}
+        ${state.gameCount > 0 ? $loading : ''}
       </div>
     `
   })
 
   $racingList.innerHTML = dom
-}
-
-const renderLoading = () => {
-  return `
-    <div class="d-flex justify-center mt-3">
-      <div class="relative spinner-container">
-        <span class="material spinner"></span>
-      </div>
-    </div>`
 }
 
 const render = () => {
