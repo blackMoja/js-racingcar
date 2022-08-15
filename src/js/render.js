@@ -1,4 +1,3 @@
-// import { move } from '../utils/move.js'
 import { state } from './state.js'
 
 const renderCarListForm = () => {
