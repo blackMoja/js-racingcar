@@ -1,6 +1,6 @@
-import { move } from '../utils/move.js'
+import move from '../utils/move.js'
 import addEvent from '../utils/addEvent.js'
-import { setState, state } from './state.js'
+import { setState } from './state.js'
 
 const handleCarListButtonClick = () => {
   const $carListInput = document.querySelector('#carListForm input')
