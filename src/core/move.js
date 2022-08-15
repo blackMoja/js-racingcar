@@ -9,7 +9,7 @@ const move = async () => {
     if (gameCount > 0) {
       gameCount = gameCount - 1
       await sleep(1000)
-      doMove(gameCount)
+      runProcess(gameCount)
     } else {
       clearInterval(interval)
     }
@@ -17,7 +17,7 @@ const move = async () => {
 }
 
 let result = []
-const doMove = (gameCount) => {
+const runProcess = (gameCount) => {
   state.cars.forEach((car, index) => {
     const getMove = getRandomNumber()
     const { name, position } = car
