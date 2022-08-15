@@ -5,11 +5,15 @@ import getRandomNumber from './getRandomNumber.js'
 const move = async () => {
   let gameCount = state.gameCount
 
-  while (gameCount > 0) {
-    gameCount = gameCount - 1
-    await sleep(1000)
-    doMove(gameCount)
-  }
+  const interval = setInterval(async () => {
+    if (gameCount > 0) {
+      gameCount = gameCount - 1
+      await sleep(1000)
+      doMove(gameCount)
+    } else {
+      clearInterval(interval)
+    }
+  }, 1000)
 }
 
 let result = []
