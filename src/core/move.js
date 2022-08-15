@@ -1,6 +1,6 @@
 import { state, setState } from '../js/state.js'
 import sleep from '../utils/sleep.js'
-import getRandomNumber from './getRandomNumber.js'
+import getRandomNumber from '../utils/getRandomNumber.js'
 
 const move = async () => {
   let gameCount = state.gameCount

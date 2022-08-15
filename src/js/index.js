@@ -1,4 +1,4 @@
-import move from '../utils/move.js'
+import move from '../core/move.js'
 import addEvent from '../utils/addEvent.js'
 import CONSTANTS from '../utils/constants.js'
 import { setState } from './state.js'
