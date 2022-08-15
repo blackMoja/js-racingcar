@@ -1,9 +1,9 @@
 import render from './render.js'
+import CONSTANTS from '../utils/constants.js'
 
 const state = {
   // * 게임 스탭
-  // 1. 자동차 이름 입력 2. 시도할 횟수 입력 3. 게임 진행
-  step: 1,
+  step: CONSTANTS.GAME_PREPARE_CAR,
   // * 레이싱 하는 자동차 리스트
   cars: [],
   // * 게임 카운트

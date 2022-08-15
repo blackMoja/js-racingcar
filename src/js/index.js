@@ -1,5 +1,6 @@
 import move from '../utils/move.js'
 import addEvent from '../utils/addEvent.js'
+import CONSTANTS from '../utils/constants.js'
 import { setState } from './state.js'
 
 const handleCarListButtonClick = () => {
@@ -14,7 +15,7 @@ const handleCarListButtonClick = () => {
   }
 
   setState({
-    step: 2,
+    step: CONSTANTS.GAME_PREPARE_COUNT,
     cars: carList
       .split(',')
       .reduce((p, v) => ((p = [...p, { name: v, position: 0 }]), p), []),
@@ -33,7 +34,7 @@ const handleGameCountFormButton = () => {
   }
 
   setState({
-    step: 3,
+    step: CONSTANTS.GAME_START,
     gameCount: Number(gameCount),
   })
 

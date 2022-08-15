@@ -1,15 +1,16 @@
 import { state } from './state.js'
+import CONSTANTS from '../utils/constants.js'
 
 const renderCarListForm = () => {
   const $carListFormInput = document.querySelector('#carListForm input')
   const $carListFormButton = document.querySelector('#carListForm button')
 
-  if (state.step >= 1) {
-    $carListFormInput.setAttribute('disabled', true)
-    $carListFormButton.setAttribute('disabled', true)
-  } else {
+  if (state.step === CONSTANTS.GAME_PREPARE_CAR) {
     $carListFormInput.setAttribute('disabled', false)
     $carListFormButton.setAttribute('disabled', false)
+  } else {
+    $carListFormInput.setAttribute('disabled', true)
+    $carListFormButton.setAttribute('disabled', true)
   }
 }
 
@@ -18,13 +19,13 @@ const renderGameCountForm = () => {
   const $gameCountFormInput = document.querySelector('#gameCountForm input')
   const $gameCountFormButton = document.querySelector('#gameCountForm button')
 
-  if (state.step >= 2) {
-    $gameCountForm.style.visibility = 'visible'
-  } else {
+  if (state.step === CONSTANTS.GAME_PREPARE_CAR) {
     $gameCountForm.style.visibility = 'hidden'
+  } else {
+    $gameCountForm.style.visibility = 'visible'
   }
 
-  if (state.step > 2) {
+  if (state.step === CONSTANTS.GAME_START) {
     $gameCountFormInput.setAttribute('disabled', true)
     $gameCountFormButton.setAttribute('disabled', true)
   }
@@ -33,7 +34,7 @@ const renderGameCountForm = () => {
 const renderGameBoard = async () => {
   const $gameBoard = document.querySelector('#gameBoard')
 
-  if (state.step >= 3) {
+  if (state.step === CONSTANTS.GAME_START) {
     $gameBoard.style.visibility = 'visible'
   } else {
     $gameBoard.style.visibility = 'none'
@@ -41,7 +42,7 @@ const renderGameBoard = async () => {
 }
 
 const renderCars = () => {
-  if (state.step < 3) {
+  if (state.step !== CONSTANTS.GAME_START) {
     return
   }
 
