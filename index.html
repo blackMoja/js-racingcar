@@ -20,7 +20,7 @@
               <button type="button" class="btn btn-cyan">확인</button>
             </div>
           </fieldset>
-          <fieldset id="gameCountForm" style="visibility: hidden">
+          <fieldset id="gameCountForm" class="hide">
             <p>시도할 횟수를 입력해주세요.</p>
             <div class="d-flex">
               <input type="number" class="w-100 mr-2" placeholder="시도 횟수" />
@@ -29,18 +29,10 @@
           </fieldset>
         </form>
       </section>
-      <section
-        class="d-flex justify-center mt-5"
-        id="gameBoard"
-        style="visibility: hidden"
-      >
+      <section class="d-flex justify-center mt-5 hide" id="gameBoard">
         <div class="mt-4 d-flex" id="racingList"></div>
       </section>
-      <section
-        class="d-flex justify-center mt-5"
-        id="gameWinner"
-        style="visibility: hidden"
-      >
+      <section class="d-flex justify-center mt-5 hide" id="gameWinner">
         <div>
           <h2>🏆 최종 우승자: EAST, WEST 🏆</h2>
           <div class="d-flex justify-center">

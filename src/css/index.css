@@ -35,3 +35,11 @@ fieldset {
   border: none;
   padding: 0;
 }
+
+.show {
+  visibility: visible;
+}
+
+.hide {
+  visibility: hidden;
+}

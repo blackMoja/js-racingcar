@@ -19,10 +19,14 @@ const activateGameCountForm = () => {
   const $gameCountFormInput = document.querySelector('#gameCountForm input')
   const $gameCountFormButton = document.querySelector('#gameCountForm button')
 
+  console.log('state.step : ', state.step)
+
   if (state.step === CONSTANTS.GAME_PREPARE_CAR) {
-    $gameCountForm.style.visibility = 'hidden'
+    $gameCountForm.classList.remove('show')
+    $gameCountForm.classList.add('hide')
   } else {
-    $gameCountForm.style.visibility = 'visible'
+    $gameCountForm.classList.remove('hide')
+    $gameCountForm.classList.add('show')
   }
 
   if (state.step === CONSTANTS.GAME_START) {
@@ -35,9 +39,11 @@ const renderGameBoard = async () => {
   const $gameBoard = document.querySelector('#gameBoard')
 
   if (state.step === CONSTANTS.GAME_START) {
-    $gameBoard.style.visibility = 'visible'
+    $gameBoard.classList.remove('hide')
+    $gameBoard.classList.add('show')
   } else {
-    $gameBoard.style.visibility = 'none'
+    $gameBoard.classList.remove('show')
+    $gameBoard.classList.add('hide')
   }
 }
 
