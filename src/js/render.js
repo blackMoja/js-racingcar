@@ -1,7 +1,7 @@
 import { state } from './state.js'
 import CONSTANTS from '../utils/constants.js'
 
-const renderCarListForm = () => {
+const activateCarListForm = () => {
   const $carListFormInput = document.querySelector('#carListForm input')
   const $carListFormButton = document.querySelector('#carListForm button')
 
@@ -14,7 +14,7 @@ const renderCarListForm = () => {
   }
 }
 
-const renderGameCountForm = () => {
+const activateGameCountForm = () => {
   const $gameCountForm = document.querySelector('#gameCountForm')
   const $gameCountFormInput = document.querySelector('#gameCountForm input')
   const $gameCountFormButton = document.querySelector('#gameCountForm button')
@@ -72,8 +72,8 @@ const renderLoading = () => {
 }
 
 const render = () => {
-  renderCarListForm()
-  renderGameCountForm()
+  activateCarListForm()
+  activateGameCountForm()
   renderGameBoard()
   renderCars()
 }
