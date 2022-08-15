@@ -1,25 +1,27 @@
 import { state } from './state.js'
 import CONSTANTS from '../utils/constants.js'
 
+const $carListForm = document.querySelector('#carListForm')
+const $gameCountForm = document.querySelector('#gameCountForm')
+const $gameBoard = document.querySelector('#gameBoard')
+const $racingList = document.querySelector('#racingList')
+
 const activateCarListForm = () => {
-  const $carListFormInput = document.querySelector('#carListForm input')
-  const $carListFormButton = document.querySelector('#carListForm button')
+  const [$input, $button] = $carListForm.querySelectorAll(':scope input,button')
 
   if (state.step === CONSTANTS.GAME_PREPARE_CAR) {
-    $carListFormInput.setAttribute('disabled', false)
-    $carListFormButton.setAttribute('disabled', false)
+    $input.setAttribute('disabled', false)
+    $button.setAttribute('disabled', false)
   } else {
-    $carListFormInput.setAttribute('disabled', true)
-    $carListFormButton.setAttribute('disabled', true)
+    $input.setAttribute('disabled', true)
+    $button.setAttribute('disabled', true)
   }
 }
 
 const activateGameCountForm = () => {
-  const $gameCountForm = document.querySelector('#gameCountForm')
-  const $gameCountFormInput = document.querySelector('#gameCountForm input')
-  const $gameCountFormButton = document.querySelector('#gameCountForm button')
-
-  console.log('state.step : ', state.step)
+  const [$input, $button] = $gameCountForm.querySelectorAll(
+    ':scope input,button'
+  )
 
   if (state.step === CONSTANTS.GAME_PREPARE_CAR) {
     $gameCountForm.classList.remove('show')
@@ -29,15 +31,15 @@ const activateGameCountForm = () => {
     $gameCountForm.classList.add('show')
   }
 
-  if (state.step === CONSTANTS.GAME_START) {
-    $gameCountFormInput.setAttribute('disabled', true)
-    $gameCountFormButton.setAttribute('disabled', true)
+  const isDisabled = !(state.step === CONSTANTS.GAME_PREPARE_COUNT)
+
+  if (isDisabled) {
+    $input.setAttribute('disabled', isDisabled)
+    $button.setAttribute('disabled', isDisabled)
   }
 }
 
 const renderGameBoard = async () => {
-  const $gameBoard = document.querySelector('#gameBoard')
-
   if (state.step === CONSTANTS.GAME_START) {
     $gameBoard.classList.remove('hide')
     $gameBoard.classList.add('show')
@@ -52,7 +54,6 @@ const renderCars = () => {
     return
   }
 
-  const $racingList = document.querySelector('#racingList')
   const $move = '<div class="forward-icon mt-2">⬇️</div>'
 
   let dom = ''
