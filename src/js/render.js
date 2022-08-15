@@ -59,11 +59,13 @@ const renderCars = () => {
   let dom = ''
 
   state.cars.forEach((car) => {
-    dom += `<div class="mr-2">`
-    dom += `<div class="car-player">${car.name}</div>`
-    dom += `${$move.repeat(car.position)}`
-    dom += `${state.gameCount > 0 ? renderLoading() : ''}`
-    dom += `</div>`
+    dom += `
+      <div class="mr-2">
+        <div class="car-player">${car.name}</div>
+        ${$move.repeat(car.position)}
+        ${state.gameCount > 0 ? renderLoading() : ''}
+      </div>
+    `
   })
 
   $racingList.innerHTML = dom
