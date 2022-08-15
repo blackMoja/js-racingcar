@@ -3,7 +3,6 @@ import sleep from '../utils/sleep.js'
 import getRandomNumber from '../utils/getRandomNumber.js'
 
 const move = async () => {
-  let gameCount = state.gameCount
   // TODO while과 동일한 프로세스를 적용해볼 수 있도록 수정하기 @blackmoja
   // const interval = setInterval(async () => {
   //   if (gameCount > 0) {
@@ -14,10 +13,11 @@ const move = async () => {
   //     clearInterval(interval)
   //   }
   // }, 1000)
-  while (gameCount > 0) {
-    gameCount = gameCount - 1
+
+  while (state.gameCount > 0) {
     await sleep(1000)
-    runProcess(gameCount)
+    runProcess(state.gameCount)
+    setState({ gameCount: state.gameCount - 1 })
   }
 }
 

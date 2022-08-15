@@ -1,3 +1,4 @@
+import observer from '../core/observer.js'
 import render from './render.js'
 import CONSTANTS from '../utils/constants.js'
 
@@ -12,7 +13,9 @@ const setState = (newState) => {
   Object.keys(state).forEach(
     (key) => (state[key] = newState[key] ?? state[key])
   )
-  render()
+  observer.fire()
 }
+
+observer.subscribe(render)
 
 export { state, setState }
